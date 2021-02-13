@@ -1,25 +1,15 @@
 import React, { Component } from 'react'
 import Todo from '../Todo/Todo'
+import { withTodos } from '../../hoc/withTodos'
 
 import './TodoList.scss'
-
-import { getAllTodos } from '../../apis/todos.api'
 
 class TodoList extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			userInput: '',
-			todos: [],
 		}
-	}
-
-	componentDidMount() {
-		getAllTodos().then((data) => {
-			this.setState({
-				todos: data,
-			})
-		})
 	}
 
 	handleUserInputChange = (e) => {
@@ -28,19 +18,27 @@ class TodoList extends Component {
 		})
 	}
 
-	handleUserInputSubmit = (e) => {
-		e.preventDefault() //prevent the whole page from refreshing
-		alert('submit')
+	handleUserSubmit = (e) => {
+		e.preventDefault()
+		this.setState({
+			userInput: '',
+		})
+		const newTodo = {
+			userId: 1,
+			title: this.state.userInput,
+		}
+		this.props.addTodo(newTodo)
 	}
 
 	render() {
+		const { todos, removeTodo } = this.props
 		return (
 			<section className="section-todolist">
 				<div className="todolist-container">
 					{/* we use form here for the semantic prespective */}
-					<form className="todolist-form" onSubmit={this.handleUserInputSubmit}>
+					<form className="todolist-form" onSubmit={this.handleUserSubmit}>
 						<div className="todolist-form__row">
-							<header className="todolist-header">TodoList</header>
+							<header className="todolist-header">{this.props.title}</header>
 						</div>
 						<div className="todolist-form__row">
 							<input
@@ -52,9 +50,13 @@ class TodoList extends Component {
 						</div>
 					</form>
 					<ul className="todolist-items">
-						{this.state.todos
-							? this.state.todos.map((todo) => (
-									<Todo key={todo.id} todo={todo}></Todo>
+						{todos
+							? todos.map((todo) => (
+									<Todo
+										key={todo.id}
+										todo={todo}
+										handleRemoveTodo={() => removeTodo(todo.id)}
+									></Todo>
 							  ))
 							: null}
 					</ul>
@@ -64,4 +66,4 @@ class TodoList extends Component {
 	}
 }
 
-export default TodoList
+export default withTodos(TodoList)

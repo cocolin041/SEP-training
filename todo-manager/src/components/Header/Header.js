@@ -13,6 +13,12 @@ class Header extends Component {
 		return (
 			<div className="header">
 				<Logo></Logo>
+				<a className="header-link" href="/todolist">
+					TodoList
+				</a>
+				<a className="header-link" href="/todocount">
+					TodoCount
+				</a>
 			</div>
 		)
 	}

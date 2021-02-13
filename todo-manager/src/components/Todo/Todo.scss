@@ -12,6 +12,7 @@
 		color: grey;
 		display: flex;
 		align-items: center;
+		white-space: nowrap; //solve the issue that a content of todo is too long
 	}
 	.todo__btn-remove {
 		border: none;

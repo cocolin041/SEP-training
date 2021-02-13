@@ -3,4 +3,13 @@
 	height: 100%;
 	display: flex;
 	align-items: center;
+	.header-link {
+		text-decoration: none;
+		color: white;
+		margin: 0 5px;
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }

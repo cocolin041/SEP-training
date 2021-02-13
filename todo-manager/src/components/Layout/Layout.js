@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Header from '../Header/Header'
-import TodoList from '../TodoList/TodoList'
 import './Layout.scss'
 
 class Layout extends Component {
@@ -15,9 +14,7 @@ class Layout extends Component {
 				<header className="app-header">
 					<Header></Header>
 				</header>
-				<main className="app-content">
-					<TodoList></TodoList>
-				</main>
+				<main className="app-content">{this.props.children}</main>
 			</div>
 		)
 	}
