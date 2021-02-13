@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import TodoList from './components/TodoList/TodoList'
 import TodoCount from './components/TodoCount/TodoCount'
+import WithTodoData from './components/WithTodoData/WithTodoData'
 
 class App extends Component {
 	constructor(props) {
@@ -17,10 +18,26 @@ class App extends Component {
 				<Router>
 					<Switch>
 						<Route path="/todolist">
-							<TodoList title="My Todo List"></TodoList>
+							<WithTodoData
+								render={(todos, addTodo, removeTodo) => (
+									<TodoList
+										title="My Todo List"
+										todos={todos}
+										addTodo={addTodo}
+										removeTodo={removeTodo}
+									></TodoList>
+								)}
+							></WithTodoData>
 						</Route>
 						<Route path="/todocount">
-							<TodoCount title="My Todo Count"></TodoCount>
+							<WithTodoData>
+								{(todos, addTodo, removeTodo) => (
+									<TodoCount
+										title="My Todo Count"
+										count={todos.length}
+									></TodoCount>
+								)}
+							</WithTodoData>
 						</Route>
 					</Switch>
 				</Router>

@@ -66,4 +66,5 @@ class TodoList extends Component {
 	}
 }
 
-export default withTodos(TodoList)
+// export default withTodos(TodoList)
+export default TodoList
