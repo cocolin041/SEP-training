@@ -3,12 +3,23 @@ import Todo from '../Todo/Todo'
 
 import './TodoList.scss'
 
+import { getAllTodos } from '../../apis/todos.api'
+
 class TodoList extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
 			userInput: '',
+			todos: [],
 		}
+	}
+
+	componentDidMount() {
+		getAllTodos().then((data) => {
+			this.setState({
+				todos: data,
+			})
+		})
 	}
 
 	handleUserInputChange = (e) => {
@@ -39,10 +50,14 @@ class TodoList extends Component {
 								onChange={this.handleUserInputChange}
 							></input>
 						</div>
-						<div className="todolist-form__row">
-							<Todo></Todo>
-						</div>
 					</form>
+					<ul className="todolist-items">
+						{this.state.todos
+							? this.state.todos.map((todo) => (
+									<Todo key={todo.id} todo={todo}></Todo>
+							  ))
+							: null}
+					</ul>
 				</div>
 			</section>
 		)

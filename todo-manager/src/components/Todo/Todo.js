@@ -8,13 +8,14 @@ class Todo extends Component {
 	}
 
 	render() {
+		const { id, userId, completed, title } = this.props.todo
 		return (
-			<div className="todo">
-				<p className="todo__content">Buy A Book</p>
+			<li className="todo">
+				<p className="todo__content">{title}</p>
 				<button type="button" className="todo__btn-remove">
 					X
 				</button>
-			</div>
+			</li>
 		)
 	}
 }
