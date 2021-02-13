@@ -1,0 +1,35 @@
+@import '../../styles/variable.scss';
+.section-todolist {
+	width: 100%;
+	height: 100%;
+	background-color: $--section-background-color;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.todolist-container {
+		width: 500px;
+		min-height: 200px;
+		background-color: white;
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		border-radius: 10px;
+		padding: 10px;
+		.todolist-form {
+			.todolist-form__row {
+				width: 100%;
+				height: 25px;
+				.todolist-header {
+					text-align: center;
+					color: $--theme-primary;
+					font-size: 18px;
+				}
+				.todolist-inputbar {
+					width: 100%;
+					height: 100%;
+					outline: none;
+					text-align: center;
+				}
+			}
+		}
+	}
+}

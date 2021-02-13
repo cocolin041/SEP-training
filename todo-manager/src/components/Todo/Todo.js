@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Todo.scss'
 
 class Todo extends Component {
 	constructor(props) {
@@ -7,7 +8,14 @@ class Todo extends Component {
 	}
 
 	render() {
-		return <div>Todo</div>
+		return (
+			<div className="todo">
+				<p className="todo__content">Buy A Book</p>
+				<button type="button" className="todo__btn-remove">
+					X
+				</button>
+			</div>
+		)
 	}
 }
 

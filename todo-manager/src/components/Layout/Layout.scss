@@ -1,0 +1,21 @@
+@import '../../styles/variable.scss';
+
+.app-container {
+	width: 100vw;
+	height: 100vh;
+	.app-header {
+		height: $--app-header-height;
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		background-color: $--theme-primary;
+		color: white;
+	}
+	.app-content {
+		padding-top: $--app-header-height;
+		height: 100%;
+		width: 100%;
+	}
+}
