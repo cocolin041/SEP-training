@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<div id="root"></div>
+		<!-- we don't need CDN here anymore after we install the node module(react, react-dom) and import them in each file-->
+		<!-- <script
+			crossorigin
+			src="https://unpkg.com/react@17/umd/react.development.js"
+		></script>
+		<script
+			crossorigin
+			src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+		></script> -->
+
+		<!-- Before using webpack, we have to include the index.js file after transpiling using babel
+		But after we used webpack, we instead include the bundle file after generating using webpack -->
+
+		<!-- <script src="../lib/index.js"></script> -->
+		<script src="../dist/bundle.js"></script>
+	</body>
+</html>
