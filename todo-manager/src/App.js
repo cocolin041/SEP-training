@@ -5,6 +5,8 @@ import Layout from './components/Layout/Layout'
 import TodoList from './components/TodoList/TodoList'
 import TodoCount from './components/TodoCount/TodoCount'
 import WithTodoData from './components/WithTodoData/WithTodoData'
+import ColorTodo from './components/ColorTodo/ColorTodo'
+import Todo from './components/Todo/Todo'
 
 class App extends Component {
 	constructor(props) {
@@ -25,7 +27,19 @@ class App extends Component {
 										todos={todos}
 										addTodo={addTodo}
 										removeTodo={removeTodo}
-									></TodoList>
+									>
+										{(todos, removeTodo) =>
+											todos
+												? todos.map((todo) => (
+														<ColorTodo
+															key={todo.id}
+															todo={todo}
+															handleRemoveTodo={() => removeTodo(todo.id)}
+														></ColorTodo>
+												  ))
+												: null
+										}
+									</TodoList>
 								)}
 							></WithTodoData>
 						</Route>

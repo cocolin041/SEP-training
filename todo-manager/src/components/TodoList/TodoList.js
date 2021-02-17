@@ -32,7 +32,6 @@ class TodoList extends Component {
 	}
 
 	render() {
-		const { todos, removeTodo } = this.props
 		return (
 			<section className="section-todolist">
 				<div className="todolist-container">
@@ -51,15 +50,7 @@ class TodoList extends Component {
 						</div>
 					</form>
 					<ul className="todolist-items">
-						{todos
-							? todos.map((todo) => (
-									<ColorTodo
-										key={todo.id}
-										todo={todo}
-										handleRemoveTodo={() => removeTodo(todo.id)}
-									></ColorTodo>
-							  ))
-							: null}
+						{this.props.children(this.props.todos, this.props.removeTodo)}
 					</ul>
 				</div>
 			</section>
