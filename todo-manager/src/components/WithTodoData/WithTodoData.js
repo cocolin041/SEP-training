@@ -18,7 +18,6 @@ class WithTodoData extends Component {
 
 	handlAddTodo = (newTodo) => {
 		addTodo(newTodo).then((data) => {
-			console.log(data)
 			this.setState((preState) => {
 				return {
 					todos: [data, ...preState.todos],

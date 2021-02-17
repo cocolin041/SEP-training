@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Todo from '../Todo/Todo'
+import ColorTodo from '../ColorTodo/ColorTodo'
 import { withTodos } from '../../hoc/withTodos'
 
 import './TodoList.scss'
@@ -52,11 +53,11 @@ class TodoList extends Component {
 					<ul className="todolist-items">
 						{todos
 							? todos.map((todo) => (
-									<Todo
+									<ColorTodo
 										key={todo.id}
 										todo={todo}
 										handleRemoveTodo={() => removeTodo(todo.id)}
-									></Todo>
+									></ColorTodo>
 							  ))
 							: null}
 					</ul>
